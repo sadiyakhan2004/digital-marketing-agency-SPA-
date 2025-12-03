@@ -63,34 +63,26 @@
                 </div>
 
                 <!-- 3. Mobile Hamburger Menu Button (Visible on Mobile) -->
-                <div class="md:hidden flex items-center">
-                    <label for="menu-toggle" class="p-2 cursor-pointer text-gray-700 hover:text-primary-indigo">
-                        <!-- Hamburger Icon (using a simple SVG for clarity and compliance) -->
-                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                        </svg>
-                    </label>
-                </div>
+                <!-- Mobile Hamburger Menu Button -->
+<div class="md:hidden flex items-center">
+    <button id="menu-btn" class="p-2 text-gray-700 hover:text-primary-indigo">
+        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+    </button>
+</div>
             </div>
 
             <!-- 4. Mobile Menu Content (Hidden by default, slides down on toggle) -->
-            <div class="md:hidden max-h-0 overflow-hidden transition-all duration-500 peer-checked:max-h-screen">
-                <div class="pt-2 pb-4 space-y-2 border-t border-gray-100">
-                    <a href="#home" class="block px-4 py-3 text-base font-semibold text-gray-900 bg-gray-50 rounded-lg hover:bg-gray-100">
-                        Home
-                    </a>
-                    <a href="#services" class="block px-4 py-3 text-base font-medium text-gray-600 rounded-lg hover:bg-gray-100">
-                        Services
-                    </a>
-                    <a href="#about" class="block px-4 py-3 text-base font-medium text-gray-600 rounded-lg hover:bg-gray-100">
-                        About
-                    </a>
-                    <!-- CTA Button -->
-                    <a href="#contact" class="block text-center px-4 py-3 text-base font-medium text-white bg-primary-indigo rounded-lg mt-2 shadow-md hover:bg-indigo-700 transition duration-300">
-                        Contact
-                    </a>
-                </div>
-            </div>
+         <!-- Mobile Menu -->
+<div id="menu" class="hidden md:hidden">
+    <div class="pt-2 pb-4 space-y-2 border-t border-gray-100">
+        <a href="#home" class="block px-4 py-3 text-base font-semibold text-gray-900 bg-gray-50 rounded-lg hover:bg-gray-100">Home</a>
+        <a href="#services" class="block px-4 py-3 text-base font-medium text-gray-600 rounded-lg hover:bg-gray-100">Services</a>
+        <a href="#about" class="block px-4 py-3 text-base font-medium text-gray-600 rounded-lg hover:bg-gray-100">About</a>
+        <a href="#contact" class="block text-center px-4 py-3 text-base font-medium text-white bg-primary-indigo rounded-lg mt-2 shadow-md hover:bg-indigo-700 transition duration-300">Contact</a>
+    </div>
+</div>
         </nav>
     </header>
 
@@ -456,4 +448,12 @@
         </div>
     </footer>
 </body>
+    <script>
+  const btn = document.getElementById('menu-btn');
+  const menu = document.getElementById('menu');
+
+  btn.addEventListener('click', () => {
+    menu.classList.toggle('hidden');
+  });
+</script>
 </html>
