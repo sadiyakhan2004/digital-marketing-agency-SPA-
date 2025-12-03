@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Agency Website</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Configure Tailwind for Inter font and theme colors -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        // Consistent Color Palette: Indigo/Blue/Gray
+                        'primary-indigo': '#4f46e5', // Indigo 600 (Main Action Color)
+                        'primary-blue': '#3b82f6',   // Blue 500 (Accent Color)
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Ensuring Inter is used */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+    </style>
+</head>
+<body class="font-sans bg-gray-50 pt-20">
+
+    <!-- NAVIGATION BAR (STICKY) -->
+    <header class="fixed top-0 left-0 w-full bg-white shadow-lg z-50">
+        <!-- The header container keeps a fixed max-width and centering for navigation -->
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- 1. Brand Logo/Name -->
+                <div class="flex-shrink-0">
+                    <a href="#home" class="text-2xl font-extrabold text-gray-900 tracking-tight">
+                        <span class="text-primary-blue">Digital</span><span class="text-primary-indigo">Agency</span>
+                    </a>
+                </div>
+
+                <!-- Hidden Checkbox for Mobile Menu Toggle (Pure CSS/Tailwind Hack) -->
+                <input type="checkbox" id="menu-toggle" class="hidden peer">
+
+                <!-- 2. Desktop Navigation Links (Visible on Tablet/Desktop) -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#home" class="text-gray-900 hover:text-primary-blue transition duration-150 font-semibold px-3 py-2 rounded-lg">
+                        Home
+                    </a>
+                    <a href="#services" class="text-gray-600 hover:text-primary-blue transition duration-150 font-medium px-3 py-2 rounded-lg">
+                        Services
+                    </a>
+                    <a href="#about" class="text-gray-600 hover:text-primary-blue transition duration-150 font-medium px-3 py-2 rounded-lg">
+                        About
+                    </a>
+                    <a href="#contact" class="bg-primary-indigo text-white px-6 py-2 rounded-full font-semibold shadow-md hover:bg-indigo-700 transition duration-300 transform hover:scale-105">
+                        Contact
+                    </a>
+                </div>
+
+                <!-- 3. Mobile Hamburger Menu Button (Visible on Mobile) -->
+                <div class="md:hidden flex items-center">
+                    <label for="menu-toggle" class="p-2 cursor-pointer text-gray-700 hover:text-primary-indigo">
+                        <!-- Hamburger Icon (using a simple SVG for clarity and compliance) -->
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </label>
+                </div>
+            </div>
+
+            <!-- 4. Mobile Menu Content (Hidden by default, slides down on toggle) -->
+            <div class="md:hidden max-h-0 overflow-hidden transition-all duration-500 peer-checked:max-h-screen">
+                <div class="pt-2 pb-4 space-y-2 border-t border-gray-100">
+                    <a href="#home" class="block px-4 py-3 text-base font-semibold text-gray-900 bg-gray-50 rounded-lg hover:bg-gray-100">
+                        Home
+                    </a>
+                    <a href="#services" class="block px-4 py-3 text-base font-medium text-gray-600 rounded-lg hover:bg-gray-100">
+                        Services
+                    </a>
+                    <a href="#about" class="block px-4 py-3 text-base font-medium text-gray-600 rounded-lg hover:bg-gray-100">
+                        About
+                    </a>
+                    <!-- CTA Button -->
+                    <a href="#contact" class="block text-center px-4 py-3 text-base font-medium text-white bg-primary-indigo rounded-lg mt-2 shadow-md hover:bg-indigo-700 transition duration-300">
+                        Contact
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- MAIN CONTENT AREA: Removed 'container' here to use custom max-width wrappers inside sections -->
+    <main class="mx-auto">
+        
+        <!-- HERO SECTION: Constrained content width for better left/right margin on large screens -->
+        <section id="home" class="py-12 md:py-20 lg:py-24 overflow-hidden px-4 sm:px-6 lg:px-8">
+            <div class="max-w-6xl mx-auto"> <!-- This centers and constrains the content -->
+                <div class="lg:grid lg:grid-cols-2 lg:gap-12 items-center">
+
+                    <!-- 1. Left Column: Text and CTAs -->
+                    <div class="mb-12 lg:mb-0 max-w-xl lg:max-w-none">
+                        <!-- Subheading/Tagline -->
+                        <p class="text-lg font-semibold text-primary-blue mb-3 uppercase tracking-wider">
+                            Elevate Your Brand. Drive Results.
+                        </p>
+
+                        <!-- Headline -->
+                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight mb-6">
+                            Unlocking <span class="text-primary-indigo">Digital Growth</span> with Strategic Marketing
+                        </h1>
+
+                        <!-- Descriptive Text -->
+                        <p class="text-xl text-gray-600 mb-8">
+                            We design and execute data-driven strategies that transform clicks into customers and build lasting brand value for businesses worldwide.
+                        </p>
+
+                        <!-- CTA Buttons -->
+                        <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                            
+                            <!-- Primary CTA Button -->
+                            <a href="#contact" class="inline-flex justify-center items-center px-8 py-3 border border-transparent text-base font-semibold rounded-full shadow-lg text-white bg-primary-indigo hover:bg-indigo-700 transition duration-300 transform hover:scale-[1.02]">
+                                Get Free Consultation
+                            </a>
+
+                            <!-- Secondary CTA Link -->
+                            <a href="#services" class="inline-flex justify-center items-center px-8 py-3 text-base font-semibold rounded-full text-primary-blue bg-white border-2 border-primary-blue hover:bg-blue-50 transition duration-300">
+                                View Services &rarr;
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- 2. Right Column: Hero Image/Illustration -->
+                    <div class="flex justify-center lg:justify-end">
+                        <img 
+                            class="w-full max-w-lg h-auto object-cover rounded-3xl shadow-2xl ring-4 ring-primary-indigo/10 transition duration-500 ease-in-out transform hover:scale-[1.01]"
+                            src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop"
+                            alt="Digital marketing data and performance dashboard"
+                            onerror="this.onerror=null; this.src='https://placehold.co/600x400/3b82f6/ffffff?text=Digital+Marketing+Hero';"
+                        />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVICES SECTION: Constrained content width for better left/right margin on large screens -->
+        <section id="services" class="py-16 md:py-24 lg:py-32 px-4 sm:px-6 lg:px-8">
+            <div class="max-w-6xl mx-auto"> <!-- This centers and constrains the content -->
+            
+                <!-- Section Header -->
+                <div class="max-w-3xl mx-auto text-center mb-12 lg:mb-16">
+                    <h2 class="text-base font-semibold text-primary-indigo tracking-wide uppercase">
+                        Our Core Competencies
+                    </h2>
+                    <p class="mt-2 text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 leading-tight">
+                        Full-Service Digital Solutions That Deliver Results
+                    </p>
+                    <p class="mt-4 text-xl text-gray-600">
+                        From search optimization to conversion rate strategy, we cover every aspect of your digital presence.
+                    </p>
+                </div>
+
+                <!-- Services Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 lg:gap-12">
+
+                    <!-- SERVICE CARD 1: Search Engine Optimization (SEO) -->
+                    <div class="bg-white p-8 rounded-xl shadow-xl transition duration-300 hover:shadow-2xl hover:scale-[1.02] transform border-t-4 border-primary-blue">
+                        <!-- Icon -->
+                        <div class="p-3 inline-flex items-center justify-center rounded-full bg-primary-blue/10 text-primary-blue mb-6">
+                            <svg class="h-8 w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                            </svg>
+                        </div>
+                        <!-- Title -->
+                        <h3 class="text-2xl font-bold text-gray-900 mb-3">
+                            Search Engine Optimization
+                        </h3>
+                        <!-- Description -->
+                        <p class="text-gray-600 text-lg">
+                            We drive qualified organic traffic to your site, increasing visibility and authority through advanced SEO techniques.
+                        </p>
+                    </div>
+
+                    <!-- SERVICE CARD 2: PPC Advertising -->
+                    <div class="bg-white p-8 rounded-xl shadow-xl transition duration-300 hover:shadow-2xl hover:scale-[1.02] transform border-t-4 border-primary-indigo">
+                        <!-- Icon -->
+                        <div class="p-3 inline-flex items-center justify-center rounded-full bg-primary-indigo/10 text-primary-indigo mb-6">
+                            <svg class="h-8 w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 21v-5a2 2 0 012-2h2a2 2 0 012 2v5m-4 0v-4" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.25 10.75a8 8 0 10-16.5 0M9 9a3 3 0 116 0" />
+                            </svg>
+                        </div>
+                        <!-- Title -->
+                        <h3 class="text-2xl font-bold text-gray-900 mb-3">
+                            Paid Ad Campaigns (PPC)
+                        </h3>
+                        <!-- Description -->
+                        <p class="text-gray-600 text-lg">
+                            Maximize your advertising budget with hyper-targeted PPC campaigns on Google, Meta, and other premium networks.
+                        </p>
+                    </div>
+
+                    <!-- SERVICE CARD 3: Social Media Strategy -->
+                    <div class="bg-white p-8 rounded-xl shadow-xl transition duration-300 hover:shadow-2xl hover:scale-[1.02] transform border-t-4 border-primary-blue">
+                        <!-- Icon -->
+                        <div class="p-3 inline-flex items-center justify-center rounded-full bg-primary-blue/10 text-primary-blue mb-6">
+                            <svg class="h-8 w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h-4a2 2 0 01-2-2v-2a2 2 0 00-2-2H7a2 2 0 00-2 2v2a2 2 0 01-2 2H1m3-4a4 4 0 114 0M10 20h4a2 2 0 002-2v-2a2 2 0 012-2h4a2 2 0 012 2v2a2 2 0 002 2h-4" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 10h4m-2-2v4" />
+                            </svg>
+                        </div>
+                        <!-- Title -->
+                        <h3 class="text-2xl font-bold text-gray-900 mb-3">
+                            Social Media Management
+                        </h3>
+                        <!-- Description -->
+                        <p class="text-gray-600 text-lg">
+                            We build engaged communities and compelling social strategies to boost brand awareness and customer loyalty.
+                        </p>
+                    </div>
+
+                    <!-- SERVICE CARD 4: Content Marketing -->
+                    <div class="bg-white p-8 rounded-xl shadow-xl transition duration-300 hover:shadow-2xl hover:scale-[1.02] transform border-t-4 border-primary-indigo">
+                        <!-- Icon -->
+                        <div class="p-3 inline-flex items-center justify-center rounded-full bg-primary-indigo/10 text-primary-indigo mb-6">
+                            <svg class="h-8 w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m-6-4h.01M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16l7-3 7 3z" />
+                            </svg>
+                        </div>
+                        <!-- Title -->
+                        <h3 class="text-2xl font-bold text-gray-900 mb-3">
+                            High-Impact Content
+                        </h3>
+                        <!-- Description -->
+                        <p class="text-gray-600 text-lg">
+                            Our team creates strategic, high-quality content—from blogs to video scripts—that attracts, educates, and converts.
+                        </p>
+                    </div>
+
+                    <!-- SERVICE CARD 5: Web Design & Dev -->
+                    <div class="bg-white p-8 rounded-xl shadow-xl transition duration-300 hover:shadow-2xl hover:scale-[1.02] transform border-t-4 border-primary-blue">
+                        <!-- Icon -->
+                        <div class="p-3 inline-flex items-center justify-center rounded-full bg-primary-blue/10 text-primary-blue mb-6">
+                            <svg class="h-8 w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1v-3" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 7L8 10h8l-2 3M6 10H4a2 2 0 00-2 2v5a2 2 0 002 2h16a2 2 0 002-2v-5a2 2 0 00-2-2h-2" />
+                            </svg>
+                        </div>
+                        <!-- Title -->
+                        <h3 class="text-2xl font-bold text-gray-900 mb-3">
+                            Web Design & Conversion
+                        </h3>
+                        <!-- Description -->
+                        <p class="text-gray-600 text-lg">
+                            Building ultra-fast, responsive, and aesthetically pleasing websites optimized specifically for conversion rate optimization (CRO).
+                        </p>
+                    </div>
+
+                    <!-- SERVICE CARD 6: Email Marketing -->
+                    <div class="bg-white p-8 rounded-xl shadow-xl transition duration-300 hover:shadow-2xl hover:scale-[1.02] transform border-t-4 border-primary-indigo">
+                        <!-- Icon -->
+                        <div class="p-3 inline-flex items-center justify-center rounded-full bg-primary-indigo/10 text-primary-indigo mb-6">
+                            <svg class="h-8 w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8m-4 12H7a2 2 0 01-2-2V7a2 2 0 012-2h10a2 2 0 012 2v10a2 2 0 01-2 2z" />
+                            </svg>
+                        </div>
+                        <!-- Title -->
+                        <h3 class="text-2xl font-bold text-gray-900 mb-3">
+                            Automated Email Marketing
+                        </h3>
+                        <!-- Description -->
+                        <p class="text-gray-600 text-lg">
+                            Develop targeted email sequences and newsletters that nurture leads, reduce churn, and drive repeat business automatically.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- CONTACT / LEAD FORM SECTION: Centered card with form fields. This section was already constrained. -->
+        <section id="contact" class="py-16 md:py-24 lg:py-32 bg-gray-50 px-4 sm:px-6 lg:px-8">
+            
+            <!-- Section Header -->
+            <div class="max-w-xl mx-auto text-center mb-12 lg:mb-16">
+                <h2 class="text-base font-semibold text-primary-blue tracking-wide uppercase">
+                    Get Started Today
+                </h2>
+                <p class="mt-2 text-3xl sm:text-4xl font-extrabold text-gray-900 leading-tight">
+                    Request a Free Consultation
+                </p>
+                <p class="mt-4 text-lg text-gray-600">
+                    Tell us about your project goals and we will create a tailored digital growth plan.
+                </p>
+            </div>
+
+            <!-- Contact Form Card -->
+            <div class="max-w-lg mx-auto bg-white p-6 sm:p-10 rounded-2xl shadow-2xl border border-gray-100 transition duration-500 hover:shadow-primary-indigo/10">
+                
+                <form action="#" method="POST" class="space-y-6">
+                    
+                    <!-- Full Name Field -->
+                    <div>
+                        <label for="full-name" class="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
+                        <input 
+                            type="text" 
+                            name="full-name" 
+                            id="full-name" 
+                            autocomplete="name"
+                            required 
+                            class="block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-primary-indigo focus:border-primary-indigo transition duration-150"
+                            placeholder="e.g., Jane Doe"
+                        >
+                    </div>
+
+                    <!-- Email Field -->
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
+                        <input 
+                            type="email" 
+                            name="email" 
+                            id="email" 
+                            autocomplete="email"
+                            required 
+                            class="block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-primary-indigo focus:border-primary-indigo transition duration-150"
+                            placeholder="you@example.com"
+                        >
+                    </div>
+
+                    <!-- Phone Field -->
+                    <div>
+                        <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
+                        <input 
+                            type="tel" 
+                            name="phone" 
+                            id="phone" 
+                            autocomplete="tel"
+                            class="block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-primary-indigo focus:border-primary-indigo transition duration-150"
+                            placeholder="(555) 123-4567"
+                        >
+                    </div>
+
+                    <!-- Message Textarea -->
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-gray-700 mb-2">How can we help you?</label>
+                        <textarea 
+                            id="message" 
+                            name="message" 
+                            rows="4" 
+                            required 
+                            class="block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-primary-indigo focus:border-primary-indigo transition duration-150"
+                            placeholder="Describe your digital marketing challenges or goals..."
+                        ></textarea>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div>
+                        <button 
+                            type="submit" 
+                            class="w-full flex justify-center py-3 px-4 border border-transparent rounded-full shadow-lg text-lg font-semibold text-white bg-primary-indigo hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-indigo transition duration-300 transform hover:scale-[1.01]"
+                        >
+                            Send Consultation Request
+                        </button>
+                    </div>
+
+                    <!-- Required fields note -->
+                    <p class="text-xs text-center text-gray-500">
+                        * Full Name, Email Address, and Message are required.
+                    </p>
+
+                </form>
+            </div>
+
+        </section>
+
+    </main>
+    
+    <!-- FOOTER SECTION -->
+    <footer class="bg-gray-900 text-white pt-16 pb-8">
+        <!-- Footer content is also constrained to match the main content -->
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-16 border-b border-gray-800 pb-12 mb-8">
+                
+                <!-- Column 1: Company Info & Description -->
+                <div class="space-y-4 md:col-span-2 lg:col-span-1">
+                    <div class="text-2xl font-extrabold tracking-tight">
+                        <span class="text-primary-blue">Digital</span><span class="text-primary-indigo">Agency</span>
+                    </div>
+                    <p class="text-gray-400 text-sm">
+                        Strategic digital marketing and web development agency focused on accelerating growth and maximizing ROI for modern businesses.
+                    </p>
+                    <!-- Social Icons -->
+                    <div class="flex space-x-4 pt-2">
+                        <!-- LinkedIn -->
+                        <a href="#" class="text-gray-400 hover:text-primary-blue transition duration-300" aria-label="LinkedIn">
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.366-4-3.235-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.793 7 2.45v6.785z" />
+                            </svg>
+                        </a>
+                        <!-- Twitter/X -->
+                        <a href="#" class="text-gray-400 hover:text-primary-blue transition duration-300" aria-label="Twitter">
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M18.244 2.25h3.308l-7.227 8.261 8.502 11.24H16.17l-5.214-6.883L4.99 21.75H1.68l7.73-10.74L1.93 2.25h3.309l5.05 6.452 4.414-6.453h1.791zm-4.047 15.344L7.334 4.5H5.8l7.98 13.794h1.003z"/>
+                            </svg>
+                        </a>
+                        <!-- Instagram -->
+                        <a href="#" class="text-gray-400 hover:text-primary-blue transition duration-300" aria-label="Instagram">
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M12.001 5.75c-3.486 0-3.837 0-11.233 0-2.484 0-4.032 1.548-4.032 4.032 0 7.396 0 7.746 0 11.233 0 3.485 0 3.837 0 11.233 0 2.484-1.548 4.032-4.032 4.032-7.396 0-7.746 0-11.233 0-3.486 0-3.837 0-11.233 0-2.484 0-4.032 1.548-4.032 4.032 0 7.396 0 7.746 0 11.233 0 3.485 0 3.837 0 11.233zm.001 10.5c-2.484 0-4.5-2.016-4.5-4.5s2.016-4.5 4.5-4.5 4.5 2.016 4.5 4.5-2.016 4.5-4.5 4.5zm-5.25-10.5h10.5v-1.5h-10.5z" clip-rule="evenodd"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Column 2: Navigation Links -->
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-4">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li>
+                            <a href="#home" class="text-gray-400 hover:text-primary-blue transition duration-300">Home</a>
+                        </li>
+                        <li>
+                            <a href="#services" class="text-gray-400 hover:text-primary-blue transition duration-300">Services</a>
+                        </li>
+                        <li>
+                            <a href="#about" class="text-gray-400 hover:text-primary-blue transition duration-300">About Us</a>
+                        </li>
+                        <li>
+                            <a href="#contact" class="text-gray-400 hover:text-primary-blue transition duration-300">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Contact Details (Mock) -->
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-4">Get In Touch</h4>
+                    <ul class="space-y-3 text-gray-400">
+                        <li>
+                            <p class="font-medium">Email: <a href="mailto:info@digitalagency.com" class="hover:text-primary-blue transition duration-300">info@digitalagency.com</a></p>
+                        </li>
+                        <li>
+                            <p class="font-medium">Phone: <a href="tel:+15551234567" class="hover:text-primary-blue transition duration-300">(555) 123-4567</a></p>
+                        </li>
+                        <li>
+                            <address class="not-italic">123 Market St, Suite 500, City, ST 90210</address>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Copyright Row -->
+            <div class="text-center text-sm text-gray-500 pt-4">
+                &copy; 2024 Digital Agency. All rights reserved.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
